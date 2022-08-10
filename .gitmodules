@@ -1,0 +1,6 @@
+[submodule "music-quiz-frontend"]
+	path = music-quiz-frontend
+	url = https://github.com/CTBroze/music-quiz-frontend.git
+[submodule "music-quiz-backend"]
+	path = music-quiz-backend
+	url = https://github.com/CTBroze/music-quiz-backend.git
