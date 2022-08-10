@@ -15,38 +15,79 @@ Server에 가입정보를 전달한다.
 
 + Request (application/json)
 
-    pw는 SHA256으로 해쉬된 string이다.
-
-        + body
-        {
-          "id": "user",
-          "pw" : "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
-        }
-        
-        + schema
-        {
-        "id": "string",
-        "pw": "string"
-        }
-
-+ Response 200 (application/json)
+  pw는 SHA256으로 해쉬된 string이다.
 
     + body
     {
-        "accessToken": "jwt string(uid,nickname)"
+      "email":"user@user.com",
+      "nickname":"user",
+      "id": "user",
+      "pw" : "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
     }
-
+        
     + schema
     {
-      "accessToken" : "string" 
+      "email":"string",
+      "nickname":"string",
+      "id": "string",
+      "pw": "string"
     }
+
++ Response 200 (application/json)
+
+  + body
+  {
+    "accessToken": "jwt string(uid,nickname)"
+  }
+
+  + schema
+  {
+    "accessToken" : "string" 
+  }
 
 + Response 403 (application/json)
   
+  + body
   {
     "message": "Please enter ID and Password"
   }
   
 ## Sign-in [/api/signin]
+사용자가 서비스를 사용하기 위해 로그인할때 사용하는 api
 
 ### Sign-in [POST]
+Server에 ID와 PW를 전달한다.
++ Request (application/json)
+
+  pw는 SHA256으로 해쉬된 string이다.
+
+    + body
+    {
+      "id": "user",
+      "pw" : "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
+    }
+        
+    + schema
+    {
+      "id": "string",
+      "pw": "string"
+    }
+
++ Response 200 (application/json)
+
+  + body
+  {
+    "accessToken": "jwt string(uid,nickname)"
+  }
+
+  + schema
+  {
+    "accessToken" : "string" 
+  }
+
++ Response 403 (application/json)
+  
+  + body
+  {
+    "message": "Please enter ID and Password"
+  }
