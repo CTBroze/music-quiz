@@ -1,0 +1,52 @@
+FORMAT: 1A
+
+# Music-Quiz Project
+
+## Changelog
+1. first create
+
+# Group Non-Auth
+
+## Sign-up [/api/signup]
+사용자가 서비스에 가입하기 위해 사용하는 api
+
+### Sign-up [POST]
+Server에 가입정보를 전달한다.
+
++ Request (application/json)
+
+    pw는 SHA256으로 해쉬된 string이다.
+
+        + body
+        {
+          "id": "user",
+          "pw" : "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
+        }
+        
+        + schema
+        {
+        "id": "string",
+        "pw": "string"
+        }
+
++ Response 200 (application/json)
+
+    + body
+    {
+        "accessToken": "jwt string(uid,nickname)"
+    }
+
+    + schema
+    {
+      "accessToken" : "string" 
+    }
+
++ Response 403 (application/json)
+  
+  {
+    "message": "Please enter ID and Password"
+  }
+  
+## Sign-in [/api/signin]
+
+### Sign-in [POST]
